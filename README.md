@@ -1,3 +1,3 @@
 # Django-Library-Management-System
-*Custom Middleware to google any syntax error during development
-*Feed
+* Custom Middleware to google any syntax error during development
+* Feed
