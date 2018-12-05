@@ -1,0 +1,69 @@
+{% extends 'base_generic.html' %}
+{% block style %}
+    .product-title,  .product-description, .price, .vote, .sizes {
+    margin-bottom: 15px; }
+{% endblock %}
+{% block content %}
+    <div class="container bg bg-white">
+
+    <div class="container-fliud">
+    <div class="wrapper row">
+        <div class="preview col-6">
+
+            <div class="preview-pic tab-content">
+                <div class="tab-pane active  my-auto mx-auto" id="pic-1"><img
+                        src="{{ student.pic.url }}" height="200" width="200"/>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="details col-6">
+            <h1>Name: {{ student.name }}</h1>
+
+            <p><strong>Id:</strong>{{ student.roll_no }}</p>
+            <p><strong>Contact:</strong> {{ student.contact_no }}</p>
+            <p><strong>Branch:</strong> {{ student.branch }}</p>
+
+
+            {% if user.is_superuser %}
+
+            <p><strong>Books due:</strong> {{ student.total_books_due }}</p>
+                <a class="btn btn-danger" href="{% url 'student_delete' pk=student.id %}">DELETE</a>
+                <a class="btn btn-success" href="{% url 'student_update' pk=student.id %}">Update</a>
+
+            {% endif %}
+
+
+        </div>
+        <hr>
+    </div>
+    <hr>
+    <hr>
+ {% if user.is_superuser %}
+    {% if books %}
+
+        <div class="row mx-auto">
+            {% for book in books %}
+
+
+                <div class="mx-3 col-md-4 col-lg-3 mb-4 shadow p-2 mb-4 bg-white rounded">
+                    <div class="card mx-auto text-center ">
+                        <img class="card-img-top" src="{{ book.book.pic.url }}" alt="Sample Title" width="400px"
+                             height="400px">
+                        <div class="card-body">
+                            <h2 class="card-title"><a href="{{ book.book.get_absolute_url }}">{{ book.book.title }}</a>
+                                ({{ book.book.author }})</h2>
+                            <a class="btn btn-success" href="{% url 'ret' pk=book.id %}">Return</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    {% else %}
+        <p>There are no books borrowed.</p>
+    {% endif %}
+
+{% endif %}
+{% endblock %}

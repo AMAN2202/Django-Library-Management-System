@@ -1,0 +1,12 @@
+{% extends 'base_generic.html' %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="bg bg-white form-group mx-auto my-auto">
+        <form method="post" class="form" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <center><input class="btn btn-success" type="submit" value="Submit"/></center>
+        </form>
+    </div>
+{% endblock %}

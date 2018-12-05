@@ -1,0 +1,306 @@
+{% extends "base_generic.html" %}
+{% block style %}
+
+    /* BASIC */
+
+    html {
+    background-color: #56baed;
+    }
+
+    body {
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    }
+
+    a {
+    color: #92badd;
+    display:inline-block;
+    text-decoration: none;
+    font-weight: 400;
+    }
+
+    h2 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display:inline-block;
+    margin: 40px 8px 10px 8px;
+    color: #cccccc;
+    }
+
+
+
+    /* STRUCTURE */
+
+    .wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 20px;
+    }
+
+    #formContent {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    text-align: center;
+    }
+
+    #formFooter {
+    background-color: #f6f6f6;
+    border-top: 1px solid #dce8f1;
+    padding: 25px;
+    text-align: center;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+    }
+
+
+
+    /* TABS */
+
+    h2.inactive {
+    color: #cccccc;
+    }
+
+    h2.active {
+    color: #0d0d0d;
+    border-bottom: 2px solid #5fbae9;
+    }
+
+
+
+    /* FORM TYPOGRAPHY*/
+
+    input[type=button], input[type=submit], input[type=reset]  {
+    background-color: #56baed;
+    border: none;
+    color: white;
+    padding: 15px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px 20px 40px 20px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    }
+
+    input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+    background-color: #39ace7;
+    }
+
+    input[type=password]:active,input[type=submit]:active, input[type=submit]:active, input[type=reset]:active  {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+    }
+
+    input[type=text],input[type=password] {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    width: 85%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    }
+
+    input[type=text]:focus {
+    background-color: #fff;
+    border-bottom: 2px solid #5fbae9;
+    }
+
+    input[type=text]:placeholder {
+    color: #cccccc;
+    }
+
+
+
+    /* ANIMATIONS */
+
+    /* Simple CSS3 Fade-in-down Animation */
+    .fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    }
+
+    @-webkit-keyframes fadeInDown {
+    0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    }
+    100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+    }
+    }
+
+    @keyframes fadeInDown {
+    0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    }
+    100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+    }
+    }
+
+    /* Simple CSS3 Fade-in Animation */
+    @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+    .fadeIn {
+    opacity:0;
+    -webkit-animation:fadeIn ease-in 1;
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+
+    -webkit-animation-duration:1s;
+    -moz-animation-duration:1s;
+    animation-duration:1s;
+    }
+
+    .fadeIn.first {
+    -webkit-animation-delay: 0.4s;
+    -moz-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+    }
+
+    .fadeIn.second {
+    -webkit-animation-delay: 0.6s;
+    -moz-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+    }
+
+    .fadeIn.third {
+    -webkit-animation-delay: 0.8s;
+    -moz-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+    }
+
+    .fadeIn.fourth {
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    animation-delay: 1s;
+    }
+
+    /* Simple CSS3 Fade-in Animation */
+    .underlineHover:after {
+    display: block;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background-color: #56baed;
+    content: "";
+    transition: width 0.2s;
+    }
+
+    .underlineHover:hover {
+    color: #0d0d0d;
+    }
+
+    .underlineHover:hover:after{
+    width: 100%;
+    }
+
+    h1{
+    color:#60a0ff;
+    }
+
+    /* OTHERS */
+
+    *:focus {
+    outline: none;
+    }
+
+    #icon {
+    width:30%;
+    }
+
+{% endblock %}
+{% block content %}
+
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+                <!-- Tabs Titles -->
+
+                <!-- Icon -->
+                <div class="fadeIn first">
+                    <img src="data:image/png;base64,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"
+                         id="icon" alt="User Icon"/>
+                    <h1>MY LIBRARY</h1>
+                </div>
+
+                <!-- Login Form -->
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">submit</button>
+
+                <!-- Remind Passowrd -->
+                <div id="formFooter">
+                    <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+                </div>
+
+
+            </div>
+
+
+            {#<input type="submit" value="login" />#}
+            {#<input type="hidden" name="next" value="{{ next }}" />#}
+    </form>
+
+    {# Assumes you setup the password_reset view in your URLconf #}
+
+
+    </div>
+{% endblock %}

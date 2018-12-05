@@ -1,0 +1,35 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+   <center> <form class="form" id="searchform" action="{% url 'search_b' %}" method="get">
+    <div class="form-group">
+    <input type="text" class="col-5  form-control-lg"  placeholder="enter book title or something " name="q" type="text"/>
+    <button type="button"  class="btn btn-success form-control-lg" onclick="searchform.submit()">Search</button>
+        </div>
+</form>
+   </center>
+    <h1>Book List</h1>
+
+    {% if book_list %}
+
+    <div class="row mx-auto">
+      {% for book in book_list %}
+
+
+    <div class="mx-3 col-md-4 col-lg-3 mb-4 shadow p-2 mb-4 bg-white rounded">
+      <div class="card mx-auto text-center ">
+      <img class="card-img-top" src="{{ book.pic.url }}" alt="Sample Title" height="400px" width="400px">
+        <div class="card-body">
+          <h2 class="card-title">    <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{book.author}})</h2>
+        </div>
+      </div>
+    </div>
+      {% endfor %}
+    </div>
+
+
+    {% else %}
+      <p class=" bg bg-white">There are no books.</p>
+    {% endif %}       
+{% endblock %}
+
